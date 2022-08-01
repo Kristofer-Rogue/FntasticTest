@@ -3,23 +3,28 @@
 #include <set>
 #include <sstream>
 
+/// <summary>
+///  онвертирует исходную строку, в новую строку, где каждый символ замен€етс€ на символ  У(Ф, если символ встречаетс€ только один раз или на У) У, если символ встречаетс€ больше одного раза.
+/// </summary>
+/// <param name="str">»сходна€ строка</param>
+/// <returns>—трока из скобок</returns>
 std::string convertString(std::string str)
 {
 	std::stringstream ss;
 	std::multiset<char> repetitionsChar;
-	for (const auto s : str)
+	for (auto &s : str)
 	{
-		repetitionsChar.insert(tolower(s));
+		s = tolower(s);
+		repetitionsChar.insert(s);
 	}
-	for (const auto s : str)
+	for (const auto &s : str)
 	{
-		if (repetitionsChar.count(tolower(s)) == 1)
+		if (repetitionsChar.count(s) == 1)
 			ss << '(';
 		else
 			ss << ')';
 	}
-	std::string result = ss.str();
-	return result;
+	return ss.str();;
 }
 int main()
 {
