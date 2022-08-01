@@ -1,10 +1,9 @@
 ﻿#include <iostream>
-#include <string>
 #include <set>
 #include <sstream>
 
 /// <summary>
-/// Конвертирует исходную строку, в новую строку, где каждый символ заменяется на символ  “(”, если символ встречается только один раз или на “) “, если символ встречается больше одного раза.
+/// Конвертирует исходную строку, в новую строку, где каждый символ заменяется на символ  “(”, если символ встречается только один раз или на “) “, если символ встречается более одного раза.
 /// </summary>
 /// <param name="str">Исходная строка</param>
 /// <returns>Строка из скобок</returns>
@@ -19,10 +18,7 @@ std::string convertString(std::string str)
 	}
 	for (const auto &s : str)
 	{
-		if (repetitionsChar.count(s) == 1)
-			ss << '(';
-		else
-			ss << ')';
+		repetitionsChar.count(s) == 1 ? ss << '(' : ss << ')';
 	}
 	return ss.str();;
 }
