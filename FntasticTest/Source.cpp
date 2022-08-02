@@ -20,7 +20,7 @@ std::string convertString(std::string str)
 	{
 		repetitionsChar.count(s) == 1 ? ss << '(' : ss << ')';
 	}
-	return ss.str();;
+	return ss.str();
 }
 int main()
 {
